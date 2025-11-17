@@ -132,11 +132,23 @@
           </span><br><br>
 
           <span style="font-family: Arial, sans-serif; font-size: 12px;">
-            E: ${mode === "apollo" ? `<span style='color: #0563C1;'>${email}</span>` : `<a href='mailto:${email}' style='color: #0563C1;'>${email}</a>`}<br>
-            W: ${mode === "apollo" ? `<span style='color: #0563C1;'>www.perform-partners.com</span>` : `<a href='http://www.perform-partners.com' target='_blank' style='color: #0563C1;'>www.perform-partners.com</a>`}<br><br>`;
+            E: ${
+              mode === "apollo"
+                ? `<span style='color: #0563C1;'>${email}</span>`
+                : `<a href='mailto:${email}' style='color: #0563C1;'>${email}</a>`
+            }<br>
+            W: ${
+              mode === "apollo"
+                ? `<span style='color: #0563C1;'>www.perform-partners.com</span>`
+                : `<a href='http://www.perform-partners.com' target='_blank' style='color: #0563C1;'>www.perform-partners.com</a>`
+            }<br><br>`;
 
       if (showMeeting && meeting) {
-        html += `Book a meeting: ${mode === "apollo" ? `<span style='color: #0563C1;'>${meeting}</span>` : `<a href='${meeting}' target='_blank' style='color: #0563C1;'>${meeting}</a>`}<br><br>`;
+        html += `Book a meeting: ${
+          mode === "apollo"
+            ? `<span style='color: #0563C1;'>${meeting}</span>`
+            : `<a href='${meeting}' target='_blank' style='color: #0563C1;'>${meeting}</a>`
+        }<br><br>`;
       }
 
       if (showSocials && mode !== "apollo") {
@@ -150,14 +162,31 @@
       html += `</span>`;
 
       html += `<div style='padding: 10px 0;'>
-        ${mode !== "apollo" ? `<img src='https://perform-partners.com/wp-content/uploads/2023/10/Icon-emerald.png' alt='Icon' width='20' height='20' style='vertical-align: middle; margin-right: 5px;'>` : ``}
+        ${
+          mode !== "apollo"
+            ? `<img src='https://perform-partners.com/wp-content/uploads/2023/10/Icon-emerald.png' alt='Icon' width='20' height='20' style='vertical-align: middle; margin-right: 5px;'>`
+            : ``
+        }
         <span style='font-size: 18px; vertical-align: middle;'>&nbsp;We are experts in <span style='color: #00B050;'>change</span></span>
       </div>`;
 
-      html += `<div style='font-size: 8px; padding-top: 5px;'>
-        Perform Partners Ltd. Registered in England. Company No: 11606816.<br>
-        Registered office: Platform, New Station St, Leeds, LS1 4JB. VAT number: 309020543
-      </div></div></div>`;
+      html += `
+        <div style='font-size: 8px; padding-top: 5px; line-height: 1.4;'>
+          Perform Partners Ltd. Registered in England. Company No: 11606816.<br>
+          Registered office: Platform, New Station St, Leeds, LS1 4JB. VAT number: 309020543
+        </div>
+        <div style='font-size: 8px; padding-top: 5px; line-height: 1.4;'>
+          This email and any attachments may contain confidential or sensitive information and are intended solely for the named recipient(s).
+          If you have received this email in error, please notify the sender immediately, delete it from your systems and do not copy or disclose its contents.
+          Please handle any personal or commercially sensitive information in this email securely and in line with your organisation’s security policies.
+          For more information about how we handle personal data, please see our
+          ${
+            mode === "apollo"
+              ? "Privacy Policy: https://perform-partners.com/privacy-policy/"
+              : "<a href='https://perform-partners.com/privacy-policy/' target='_blank' style='color: #0563C1;'>Privacy Policy</a>"
+          }.
+        </div>
+        </div></div>`;
 
       document.getElementById('output').value = html;
       document.getElementById('previewWindow').innerHTML = html;
